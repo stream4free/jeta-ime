@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeta Ime - Speisekarte</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfbf7;
+            color: #1a1a1a;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .menu-category {
+            border-bottom: 2px solid #e5e7eb;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+        }
+        .price {
+            font-weight: 600;
+            color: #8b5cf6;
+        }
+        .item-description {
+            font-size: 0.9rem;
+            color: #4b5563;
+        }
+        .translation {
+            font-style: italic;
+            color: #9ca3af;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <header class="max-w-4xl mx-auto text-center mb-12">
+        <h1 class="text-5xl mb-4">Jeta Ime</h1>
+        <nav class="flex justify-center space-x-4 text-sm font-medium uppercase tracking-widest text-gray-500 mb-8">
+            <span>Home</span>
+            <span>Menü</span>
+            <span>Reservierungen</span>
+            <span>Standort</span>
+        </nav>
+    </header>
+
+    <main class="max-w-4xl mx-auto">
+        
+        <!-- WEEKEND BRUNCH -->
+        <section class="mb-16">
+            <div class="menu-category flex justify-between items-end">
+                <h2 class="text-3xl">Weekend Brunch</h2>
+                <span class="text-sm font-light text-gray-400 pb-1">Bis 16:00H</span>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Shakshuka -->
+                <div class="mb-4">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl">SHAKSHUKA</h3>
+                        <span class="price">€13.9</span>
+                    </div>
+                    <p class="item-description">Tomate, Paprikasoße, zwei pochierte Eier, Kräuter</p>
+                    <p class="translation">tomatoes, paprika sauce, two poached eggs, herbs</p>
+                    <p class="text-xs mt-1">+ Feta Käse €1.5 | + Merguez €4</p>
+                </div>
+
+                <!-- Shakshuka Vegan -->
+                <div class="mb-4">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl">SHAKSHUKA VEGAN</h3>
+                        <span class="price">€12.5</span>
+                    </div>
+                    <p class="item-description">Tomaten, Paprikasoße, Aubergine gegrillt, Kräuter</p>
+                    <p class="translation">tomatoes, paprika sauce, grilled aubergine, herbs</p>
+                </div>
+
+                <!-- Bauernbrot Lachs -->
+                <div class="mb-4">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl">KNUSPRIGES BAUERNBROT</h3>
+                        <span class="price">€14.5</span>
+                    </div>
+                    <p class="item-description">geräuchter Lachs, Salat, Avocado-Hummus</p>
+                    <p class="translation">Smoked salmon, lettuce, avocado hummus</p>
+                    <p class="text-xs text-gray-400 italic">// optional vegetarisch</p>
+                </div>
+
+                <!-- Ei Benedict -->
+                <div class="mb-4">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl">EI BENEDICT</h3>
+                        <span class="price">€14.9</span>
+                    </div>
+                    <p class="item-description">Sauerteigbrot, pochiertes Ei, Blattsalat, Bacon, Avocado-hummus, Sauce Hollandaise</p>
+                    <p class="translation">sourdough bread, poached egg, avocado hummus, lettuce, bacon, sauce hollandaise</p>
+                    <p class="text-xs mt-1">+ Lachs €2</p>
+                </div>
+
+                <!-- Hummus Brunch -->
+                <div class="mb-4">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl">HAUSGEMACHTER HUMMUS</h3>
+                        <span class="price">€13.5</span>
+                    </div>
+                    <p class="item-description">mit pochierten Eiern</p>
+                    <p class="translation">with poached eggs</p>
+                    <p class="text-xs mt-1">// Mit Shakshuka €14.9</p>
+                </div>
+
+                <!-- Burrata Delight -->
+                <div class="mb-4">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl">BURRATA DELIGHT</h3>
+                        <span class="price">€14.9</span>
+                    </div>
+                    <p class="item-description">Bauernbrot, Burrata, Blattsalat, Olive, Avocado-Hummus</p>
+                    <p class="translation">farmer's bread, burrata, lettuce, avocado hummus</p>
+                    <p class="text-xs mt-1">+ Lachs €2</p>
+                </div>
+
+                <!-- Granola -->
+                <div class="mb-4">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl">GRANOLA</h3>
+                        <span class="price">€10.9</span>
+                    </div>
+                    <p class="item-description">Haferflocken, Nüsse, Honig, Joghurt, Beeren</p>
+                    <p class="translation">oatmeal, nuts, honey, yogurt, berries</p>
+                </div>
+
+                <!-- Cilbir -->
+                <div class="mb-4">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl">CILBIR</h3>
+                        <span class="price">€12.5</span>
+                    </div>
+                    <p class="item-description">pochierte Eier, Minz-Dill Joghurt, pikante Butter, Cayenne Pfeffer</p>
+                    <p class="translation">poached eggs, mint dill yogurt, spicy butter, cayenne pepper</p>
+                </div>
+
+                <!-- Spiegeleier -->
+                <div class="mb-4">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl">SPIEGELEIER</h3>
+                        <span class="price">€13.2</span>
+                    </div>
+                    <p class="item-description">3 Spiegeleier mit Bacon</p>
+                    <p class="translation">3 fried eggs with bacon</p>
+                </div>
+            </div>
+            
+            <div class="mt-8 bg-gray-100 p-4 rounded-lg text-sm italic">
+                Hinweis für Allergiker: Liebe Gäste, bei Allergien oder Unverträglichkeiten wenden Sie sich bitte direkt an unser Personal. Vielen Dank!
+            </div>
+        </section>
+
+        <!-- MEZZE -->
+        <section class="mb-16">
+            <div class="menu-category flex justify-between items-end">
+                <h2 class="text-3xl">Mezze</h2>
+                <span class="text-sm font-light text-gray-400 pb-1">Ab 12:00H</span>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+                <!-- Melitzano -->
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg uppercase">Melitzano Salata</h3>
+                        <span class="price">€8.5</span>
+                    </div>
+                    <p class="item-description">Geräucherte Aubergine, Paprika, Knoblauch, rote Zwiebeln, Schafskäse, Petersilie</p>
+                </div>
+
+                <!-- Merguez -->
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg uppercase">Merguez</h3>
+                        <span class="price">€10.7</span>
+                    </div>
+                    <p class="item-description">Kalbfleischwürstchen mit Shakshuka Soße</p>
+                </div>
+
+                <!-- Karotten -->
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg uppercase">Gebackene Karotten</h3>
+                        <span class="price">€6.9</span>
+                    </div>
+                    <p class="item-description">eingelegte Karotten in Dattelsirup und Kräutern</p>
+                </div>
+
+                <!-- Tzatziki -->
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg uppercase">Tzatziki Kreta Art</h3>
+                        <span class="price">€6.9</span>
+                    </div>
+                    <p class="item-description">Joghurt, Gurke, Knoblauch, Pfeffer, Salz</p>
+                </div>
+
+                <!-- Burek -->
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg uppercase">Albanische Mama Burek</h3>
+                        <span class="price">€9.8</span>
+                    </div>
+                    <p class="item-description">Blätterteig gefüllt mit Spinat, Käse, Zwiebeln und orientalischen Gewürzen</p>
+                </div>
+
+                <!-- Hummus Klassisch -->
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg uppercase">Hausgemachter Hummus</h3>
+                        <span class="price">€6.9</span>
+                    </div>
+                    <p class="item-description">Klassisch</p>
+                </div>
+
+                <!-- Paprika Creme -->
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg uppercase">Paprika Creme</h3>
+                        <span class="price">€6.9</span>
+                    </div>
+                    <p class="item-description">Mit Schafskäse, Walnüssen und gegrillten grünen Paprikaschoten</p>
+                </div>
+
+                <!-- Dattelcreme -->
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg uppercase">Dattelcreme</h3>
+                        <span class="price">€7.4</span>
+                    </div>
+                    <p class="item-description">Datteln, Frischkäse, Harissa, orientalische Gewürze</p>
+                </div>
+
+                <!-- Köfte -->
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg uppercase">Köfte Jeta Ime Art</h3>
+                        <span class="price">€11.5</span>
+                    </div>
+                    <p class="item-description">Bulette aus Rind, frische Petersilie und Hummus</p>
+                </div>
+
+                <!-- Ziegenkäse -->
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg uppercase">Überbackener Ziegenkäse</h3>
+                        <span class="price">€10.3</span>
+                    </div>
+                    <p class="item-description">mit Honig und Walnüssen</p>
+                </div>
+
+                <!-- Rote Beete Salat -->
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg uppercase">Rote Beete Chef Salat</h3>
+                        <span class="price">€10.9</span>
+                    </div>
+                    <p class="item-description">Rote Beete, grüner Salat, Feta, Walnüsse, Sesam, Tomaten und hausgemachtes Dressing</p>
+                </div>
+
+                <!-- Mix Salat -->
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg uppercase">Mix Salat</h3>
+                        <span class="price">€10.4</span>
+                    </div>
+                    <p class="item-description">Gemischter grüner Salat mit Kalamata Oliven, Feta Käse, Zwiebeln und hausgemachtes Dressing</p>
+                </div>
+
+                <!-- Kartoffeln -->
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg uppercase">Kartoffeln Albanische Art</h3>
+                        <span class="price">€6.9</span>
+                    </div>
+                    <p class="item-description">Eingelegte Baby-Kartoffeln in Hausgemachter orientalischer Gewürzmischung</p>
+                </div>
+
+                <!-- Feta Saganaki -->
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg uppercase">Feta Saganaki</h3>
+                        <span class="price">€9.8</span>
+                    </div>
+                    <p class="item-description">Gebackener Fetakäse mit Oliven, Olivenöl, Oregano, Peperoni und Kirschtomaten</p>
+                </div>
+
+                <!-- Hähnchen Levante -->
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg uppercase">Hähnchen Levante</h3>
+                        <span class="price">€10.5</span>
+                    </div>
+                    <p class="item-description">Gegrilltes Hähnchenbrustfilet, mariniert mit levantischen Gewürzen, in würziger Shakshuka-Sauce</p>
+                </div>
+            </div>
+
+            <div class="mt-8 flex space-x-4 border-t pt-4">
+                <span class="text-xs uppercase tracking-widest text-gray-500">Extra Brot pro Person €1</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Kalamata Oliven €4</span>
+            </div>
+        </section>
+
+        <!-- MIXGRILL PLATTEN -->
+        <section class="mb-16 bg-purple-50 p-8 rounded-2xl">
+            <h2 class="text-3xl border-b border-purple-200 mb-6 pb-2">Mixgrill Spezialitäten</h2>
+            <div class="space-y-8">
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-2xl">MIXGRILL FÜR 2</h3>
+                        <span class="price text-xl">€55</span>
+                    </div>
+                    <p class="text-gray-600">Merguez, Hähnchenbrust, Köfte, albanische gegrillte Kartoffeln, gegrilltes Gemüse, drei verschiedene Dips, Oliven</p>
+                </div>
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-2xl">MIXGRILL VEGETARISCH</h3>
+                        <span class="price text-xl">€50</span>
+                    </div>
+                    <p class="text-gray-600">Gegrillte Karotten, gegrillte Kartoffeln, gegrilltes Gemüse, drei verschiedene Dips, Oliven, Burek, Ziegenkäse mit Honig</p>
+                    <p class="text-xs mt-2 text-purple-600 italic">Auf Wunsch auch als vegan/vegetarisch geteilte Variante möglich.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLAMMKUCHEN -->
+        <section class="mb-16">
+            <h2 class="menu-category text-3xl">Flammkuchen</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl">CLASSIC</h3>
+                        <span class="price">€14.5</span>
+                    </div>
+                    <p class="item-description">Zwiebeln, Speck, Sauerrahm</p>
+                </div>
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl">JETA IME LEVANTE VEGGI</h3>
+                        <span class="price">€14.5</span>
+                    </div>
+                    <p class="item-description">Schmand, Feta, Kirschtomaten, Artischocke, Petersilien und Oliven</p>
+                </div>
+                <div>
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl">SALMON FLAMBÉE</h3>
+                        <span class="price">€15.5</span>
+                    </div>
+                    <p class="item-description">Mit Schmand, Lachs und Dill</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- WEINE & GETRÄNKE -->
+        <section class="mb-16">
+            <h2 class="menu-category text-3xl">Getränke & Weine</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Drinks & Cocktails -->
+                <div>
+                    <h4 class="text-xl mb-4 text-purple-800">Aperitifs & Longdrinks</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex justify-between"><span>Aperol Spritz / Limoncello Spritz</span><span>€8.5</span></li>
+                        <li class="flex justify-between"><span>Hugo / Montenegro Tonic</span><span>€8.5</span></li>
+                        <li class="flex justify-between"><span>Gin Tonic / Moscow Mule / Gin Fizz</span><span>€10.5</span></li>
+                        <li class="flex justify-between"><span>Jeta Ime Libre / Dark and Stormy</span><span>€10.5</span></li>
+                        <li class="flex justify-between"><span>Black Forest Libra (Whiskey)</span><span>€14.5</span></li>
+                    </ul>
+                </div>
+
+                <!-- Softdrinks -->
+                <div>
+                    <h4 class="text-xl mb-4 text-purple-800">Hausgemachte Limos (0.4L)</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex justify-between font-medium"><span>Jeta Limo (Dattel-Rose-Traube)</span><span>€5.9</span></li>
+                        <li class="flex justify-between font-medium"><span>Black Orange Limo (Roiboos)</span><span>€5.9</span></li>
+                        <li class="flex justify-between font-medium"><span>Red Wild Berries Limo</span><span>€5.9</span></li>
+                        <li class="flex justify-between font-medium"><span>Fresh Lime on the Rocks</span><span>€5.9</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12">
+                <h4 class="text-xl mb-2 text-purple-800">Unsere Weinauswahl</h4>
+                <p class="text-sm text-gray-500 italic mb-6">Perfekt abgestimmt von Sommelier Christian auf unsere levantinisch-mediterrane Küche.</p>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h5 class="font-bold border-b mb-2">Weißweine (Auswahl)</h5>
+                        <ul class="text-sm space-y-3">
+                            <li><strong>Falerio Bianco (Velenosi)</strong> - €30<br><span class="text-xs text-gray-400">Aromatisch, frisch, blumig.</span></li>
+                            <li><strong>Heritage Sauvignon Blanc</strong> - €33<br><span class="text-xs text-gray-400">Ananas, Grapefruit, Limette.</span></li>
+                            <li><strong>Terlaner DOC</strong> - €44<br><span class="text-xs text-gray-400">Weissburgunder, Chardonnay, Sauvignon.</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold border-b mb-2">Rotweine (Auswahl)</h5>
+                        <ul class="text-sm space-y-3">
+                            <li><strong>Hermon Red (Golan Heights)</strong> - €37<br><span class="text-xs text-gray-400">Israelisch, fruchtbetont, Weichselkirsche.</span></li>
+                            <li><strong>Altos Ibericos Crianza</strong> - €37<br><span class="text-xs text-gray-400">Kraftvoll, samtweich, feine Vanille.</span></li>
+                            <li><strong>Trentangeli Castel del Monte</strong> - €45<br><span class="text-xs text-gray-400">Geheimtipp aus Apulien.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KAFFEE & TEE -->
+        <section class="mb-16">
+            <h2 class="menu-category text-3xl">Heißgetränke</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                <div>Espresso <span class="price">€2.2</span></div>
+                <div>Doppelter <span class="price">€3.2</span></div>
+                <div>Kaffee Creme <span class="price">€3.0</span></div>
+                <div>Cappuccino <span class="price">€3.5</span></div>
+                <div>Flat White <span class="price">€3.5</span></div>
+                <div>Latte Macch. <span class="price">€4.5</span></div>
+                <div>Frischer Tee <span class="price">€3.8</span></div>
+                <div>Premium Tee <span class="price">€5.9-9.9</span></div>
+            </div>
+        </section>
+
+        <!-- ALLERGIE HINWEIS -->
+        <footer class="mt-20 border-t pt-8 text-xs text-gray-400 leading-relaxed text-center">
+            <p class="mb-4">HINWEIS FÜR ALLERGIKER / ALLERGY INFORMATION</p>
+            <p class="max-w-2xl mx-auto mb-8">
+                Ihre Gesundheit liegt uns am Herzen. Unsere Gerichte werden täglich frisch zubereitet und können dabei Zutaten enthalten, die Allergien oder Unverträglichkeiten auslösen können. Wenn Sie von einer Lebensmittelallergie oder -Unverträglichkeit betroffen sind, sprechen Sie bitte vor Ihrer Bestellung unser Servicepersonal an.
+            </p>
+            <p class="uppercase tracking-widest text-gray-600 mb-4">Alle Preise verstehen sich in EURO inklusive Mehrwertsteuer.</p>
+            <p class="text-sm font-bold text-gray-800">+49 1577 2544155</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
