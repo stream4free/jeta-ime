@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeta ime | Restaurant & Brunch Berlin Friedrichshain</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap');
+
+        :root {
+            --primary: #5c6b5a; /* Deep Sage */
+            --accent: #bc8f8f;   /* Rosy Brown */
+            --text: #2d2d2d;
+            --bg: #fdfaf7;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://images.squarespace-cdn.com/content/v1/6335a06b48ed8d50b933f0b7/1af0e59a-4421-4c74-9b51-2856f6158564/Jeta-ime-Berlin-Brunch.jpg?format=2500w');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.85rem 2.5rem;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #4a5749;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .menu-item-price {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .quandoo-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-stone-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24 items-center">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-3xl font-serif font-bold tracking-tighter text-stone-800">Jeta ime</a>
+                </div>
+                
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex space-x-10 items-center">
+                    <a href="#home" class="nav-link text-xs uppercase tracking-[0.2em] font-bold text-stone-600">Home</a>
+                    <a href="/karte.html" class="nav-link text-xs uppercase tracking-[0.2em] font-bold text-stone-600">Speisekarte</a>
+                    <a href="#about" class="nav-link text-xs uppercase tracking-[0.2em] font-bold text-stone-600">Über uns</a>
+                    <a href="#location" class="nav-link text-xs uppercase tracking-[0.2em] font-bold text-stone-600">Standort</a>
+                    <a href="#reserve" class="btn-primary text-xs !py-3 !px-6">Reservieren</a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-stone-800 p-2 focus:outline-none">
+                        <i class="fa-solid fa-bars-staggered text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-nav" class="hidden fixed inset-0 z-[60] bg-stone-900 text-white flex flex-col items-center justify-center space-y-8 transition-all duration-500">
+        <button id="menu-close" class="absolute top-8 right-8 text-4xl font-light">&times;</button>
+        <a href="#home" class="text-3xl font-serif hover:text-accent transition-colors">Home</a>
+        <a href="/karte.html" class="text-3xl font-serif hover:text-accent transition-colors">Speisekarte</a>
+        <a href="#about" class="text-3xl font-serif hover:text-accent transition-colors">Über uns</a>
+        <a href="#location" class="text-3xl font-serif hover:text-accent transition-colors">Standort</a>
+        <a href="#reserve" class="btn-primary !bg-accent">Reservieren</a>
+    </div>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero-gradient h-screen flex items-center justify-center text-center text-white px-4">
+        <div class="max-w-5xl space-y-8 reveal">
+            <span class="uppercase tracking-[0.4em] text-sm font-semibold opacity-90">Willkommen in Friedrichshain</span>
+            <h1 class="text-6xl md:text-9xl font-serif leading-[1.1]">Authentische <br><span class="italic font-light">Gastfreundschaft</span></h1>
+            <p class="text-lg md:text-2xl font-light tracking-wide max-w-2xl mx-auto opacity-90 leading-relaxed">
+                Jeta ime bedeutet „Mein Leben“ – erleben Sie albanische Herzlichkeit und modernen Brunch in Berlin.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6 pt-8">
+                <a href="/karte.html" class="btn-primary !bg-white !text-stone-900 hover:!bg-stone-100">Karte ansehen</a>
+                <a href="#reserve" class="btn-primary border border-white/30 backdrop-blur-sm">Tisch reservieren</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Identity Statement -->
+    <section class="py-24 px-4 bg-white border-b border-stone-100">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <i class="fa-solid fa-quote-left text-4xl text-stone-200 mb-8"></i>
+            <h2 class="text-3xl md:text-4xl font-serif leading-relaxed italic text-stone-700">
+                „Wir führen unser Restaurant als Familie, mit Rezepten, die Generationen überdauert haben, und einer Liebe zum Detail, die man schmeckt.“
+            </h2>
+            <div class="mt-8 flex justify-center items-center space-x-4">
+                <span class="h-px w-8 bg-accent"></span>
+                <span class="uppercase tracking-widest text-xs font-bold text-stone-400">Familie Serani</span>
+                <span class="h-px w-8 bg-accent"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Menu Section -->
+    <section id="menu" class="py-32 bg-[#f9f7f4]">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-24 reveal">
+                <span class="uppercase tracking-[0.3em] text-accent text-xs font-bold mb-4 block">Kulinarik</span>
+                <h2 class="text-5xl md:text-6xl font-serif">Speisekarte</h2>
+                <div class="w-24 h-1 bg-accent mx-auto mt-8"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-16">
+                <!-- Brunch -->
+                <div class="reveal">
+                    <h3 class="text-3xl font-serif italic mb-10 pb-4 border-b border-stone-200">Brunch & Eier</h3>
+                    <div class="space-y-8">
+                        <div class="group">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="text-lg font-semibold uppercase tracking-wider">Ei Benedikt</h4>
+                                <span class="menu-item-price ml-4">14.50</span>
+                            </div>
+                            <p class="text-stone-500 text-sm mt-2 italic">Hausgemachtes Brioche, Avocado-Mousse, Sauce Hollandaise, kl. Salat.</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="text-lg font-semibold uppercase tracking-wider">Vegan Shakshuka</h4>
+                                <span class="menu-item-price ml-4">13.00</span>
+                            </div>
+                            <p class="text-stone-500 text-sm mt-2 italic">Würzige Tomatensauce, Kichererbsen, frische Kräuter, Sauerteigbrot.</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="text-lg font-semibold uppercase tracking-wider">Sauerteig & Lachs</h4>
+                                <span class="menu-item-price ml-4">15.50</span>
+                            </div>
+                            <p class="text-stone-500 text-sm mt-2 italic">Geräucherter Lachs, Meerrettich-Frischkäse, Dill & Kapernäpfel.</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="text-lg font-semibold uppercase tracking-wider">Acai Bowl</h4>
+                                <span class="menu-item-price ml-4">11.50</span>
+                            </div>
+                            <p class="text-stone-500 text-sm mt-2 italic">Bio-Acai, Granola, frische Beeren, Kokosflocken & Hanfsamen.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mezze & Dinner -->
+                <div class="reveal" style="transition-delay: 150ms;">
+                    <h3 class="text-3xl font-serif italic mb-10 pb-4 border-b border-stone-200">Mezze & Speisen</h3>
+                    <div class="space-y-8">
+                        <div class="group">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="text-lg font-semibold uppercase tracking-wider">Mezze Platte (2 P.)</h4>
+                                <span class="menu-item-price ml-4">24.00</span>
+                            </div>
+                            <p class="text-stone-500 text-sm mt-2 italic">Hummus, Feta, Oliven, Grillgemüse, albanische Dips & Pitabrot.</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="text-lg font-semibold uppercase tracking-wider">Flammkuchen Jeta</h4>
+                                <span class="menu-item-price ml-4">12.50</span>
+                            </div>
+                            <p class="text-stone-500 text-sm mt-2 italic">Schmand, rote Zwiebeln, würzige Sujuk-Wurst & Rucola.</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="text-lg font-semibold uppercase tracking-wider">Charkchouka</h4>
+                                <span class="menu-item-price ml-4">11.50</span>
+                            </div>
+                            <p class="text-stone-500 text-sm mt-2 italic">Traditionell geschmortes Sommergemüse mit Schafskäse.</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="text-lg font-semibold uppercase tracking-wider">Albanischer Burrek</h4>
+                                <span class="menu-item-price ml-4">9.50</span>
+                            </div>
+                            <p class="text-stone-500 text-sm mt-2 italic">Hausgemachter Filoteig gefüllt mit Spinat & Käse oder Hackfleisch.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drinks -->
+                <div class="reveal" style="transition-delay: 300ms;">
+                    <h3 class="text-3xl font-serif italic mb-10 pb-4 border-b border-stone-200">Hausgemacht</h3>
+                    <div class="space-y-8">
+                        <div class="group">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="text-lg font-semibold uppercase tracking-wider">Pink Lemonade</h4>
+                                <span class="menu-item-price ml-4">5.50</span>
+                            </div>
+                            <p class="text-stone-500 text-sm mt-2 italic">Frische Zitrone, Himbeeren, Minze & Soda.</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="text-lg font-semibold uppercase tracking-wider">Iced Matcha Latte</h4>
+                                <span class="menu-item-price ml-4">5.90</span>
+                            </div>
+                            <p class="text-stone-500 text-sm mt-2 italic">Premium Matcha, Hafermilch & ein Hauch Vanille.</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="text-lg font-semibold uppercase tracking-wider">Albanischer Wein</h4>
+                                <span class="menu-item-price ml-4">7.50</span>
+                            </div>
+                            <p class="text-stone-500 text-sm mt-2 italic">0,2l Auswahl erlesener Weine aus der Region Kallmet.</p>
+                        </div>
+                        <div class="group">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="text-lg font-semibold uppercase tracking-wider">Jeta Spritz</h4>
+                                <span class="menu-item-price ml-4">8.50</span>
+                            </div>
+                            <p class="text-stone-500 text-sm mt-2 italic">Haus-Aperitif mit Granatapfel, Prosecco & Rosmarin.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-20 text-center reveal">
+                <p class="text-stone-400 text-sm italic mb-8">Alle Preise in Euro inkl. MwSt. Fragen Sie unser Personal nach Allergenen.</p>
+                <a href="menu.html" class="text-stone-800 font-bold border-b-2 border-accent pb-1 hover:text-accent transition-all uppercase text-xs tracking-widest">Vollständige Karte (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 px-4 bg-white overflow-hidden border-b border-stone-100">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
+            <div class="relative reveal">
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1550966841-3ee3ad358767?auto=format&fit=crop&q=80&w=800" class="rounded shadow-lg mt-12" alt="Interieur 1">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=800" class="rounded shadow-lg" alt="Interieur 2">
+                </div>
+                <div class="absolute -z-10 top-0 left-0 w-full h-full bg-stone-50 scale-110 rounded-full blur-3xl opacity-50"></div>
+            </div>
+            <div class="space-y-8 reveal" style="transition-delay: 300ms;">
+                <span class="uppercase tracking-[0.3em] text-accent text-xs font-bold block">Über Uns</span>
+                <h2 class="text-5xl font-serif leading-tight text-stone-800">Women-owned, <br>Family-driven.</h2>
+                <p class="text-stone-600 text-lg font-light leading-relaxed">
+                    Jeta ime ist mehr als ein Restaurant. Es ist die Verwirklichung eines Traums. Gegründet von Frauen der Familie Serani, vereinen wir albanische Kochtradition mit dem kosmopolitischen Geist Berlins.
+                </p>
+                <div class="grid grid-cols-2 gap-8 pt-4">
+                    <div class="border-l-2 border-stone-100 pl-6">
+                        <span class="block text-3xl font-serif text-primary mb-1">4.8</span>
+                        <span class="text-xs uppercase tracking-widest text-stone-400">Sterne bei Google</span>
+                    </div>
+                    <div class="border-l-2 border-stone-100 pl-6">
+                        <span class="block text-3xl font-serif text-primary mb-1">LGBTQ+</span>
+                        <span class="text-xs uppercase tracking-widest text-stone-400">Friendly Space</span>
+                    </div>
+                </div>
+                <div class="pt-8">
+                    <a href="uber-uns.html" class="btn-primary">Unsere Story lesen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Quandoo Reservations -->
+    <section id="location" class="py-32 bg-stone-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-20 items-start">
+            <div class="reveal">
+                <h2 class="text-5xl font-serif mb-12">Besuchen <br><span class="italic font-light">Sie uns</span></h2>
+                <div class="space-y-12">
+                    <div class="flex items-start space-x-6">
+                        <div class="w-12 h-12 flex items-center justify-center border border-stone-700 rounded-full flex-shrink-0">
+                            <i class="fa-solid fa-location-dot text-accent"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2 uppercase tracking-widest">Adresse</h4>
+                            <p class="text-stone-400 font-light leading-relaxed">
+                                Richard-Sorge-Straße 25<br>
+                                10249 Berlin-Friedrichshain
+                            </p>
+                            <a href="https://maps.google.com" target="_blank" class="text-xs uppercase tracking-widest text-accent mt-4 inline-block hover:underline">Route berechnen</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-6">
+                        <div class="w-12 h-12 flex items-center justify-center border border-stone-700 rounded-full flex-shrink-0">
+                            <i class="fa-solid fa-clock text-accent"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2 uppercase tracking-widest">Öffnungszeiten</h4>
+                            <ul class="text-stone-400 font-light space-y-1">
+                                <li class="flex justify-between w-64"><span>Mo - Do:</span> <span>10:00 – 23:00</span></li>
+                                <li class="flex justify-between w-64"><span>Fr - Sa:</span> <span>09:00 – 00:00</span></li>
+                                <li class="flex justify-between w-64"><span>Sonntag:</span> <span>09:00 – 22:00</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-6">
+                        <div class="w-12 h-12 flex items-center justify-center border border-stone-700 rounded-full flex-shrink-0">
+                            <i class="fa-solid fa-phone text-accent"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2 uppercase tracking-widest">Direktkontakt</h4>
+                            <p class="text-stone-400 font-light">01577 2544155</p>
+                            <p class="text-stone-400 font-light">hello@jetaime-berlin.de</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="reserve" class="bg-white p-4 rounded-sm shadow-2xl reveal" style="transition-delay: 300ms;">
+                <div class="text-center mb-6 pt-4">
+                    <h3 class="text-stone-900 text-3xl font-serif">Jetzt reservieren</h3>
+                    <p class="text-stone-400 text-xs uppercase tracking-widest mt-2">Buchen Sie Ihren Tisch online</p>
+                </div>
+                <div class="quandoo-container">
+                    <!-- Quandoo Widget Iframe -->
+                    <iframe 
+                        style="border:0; overflow:hidden" 
+                        height="600px" 
+                        width="350px" 
+                        src="https://www.quandoo.de/de/checkout-widget/widget?merchantId=94834&amp;primaryColor=000000&amp;theme=light&amp;aid=146&amp;utm_source=quandoo-partner&amp;utm_medium=widget-link"
+                        title="Quandoo Booking Widget">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-20 px-4 border-t border-stone-100">
+        <div class="max-w-7xl mx-auto flex flex-col items-center space-y-12">
+            <div class="text-4xl font-serif font-bold tracking-tighter">Jeta ime</div>
+            
+            <nav class="flex flex-wrap justify-center gap-x-12 gap-y-4">
+                <a href="impressum.html" class="text-xs uppercase tracking-widest text-stone-500 hover:text-accent transition-colors">Impressum</a>
+                <a href="#" class="text-xs uppercase tracking-widest text-stone-500 hover:text-accent transition-colors">Datenschutz</a>
+                <a href="menu.html" class="text-xs uppercase tracking-widest text-stone-500 hover:text-accent transition-colors">Speisekarte</a>
+                <a href="#reserve" class="text-xs uppercase tracking-widest text-stone-500 hover:text-accent transition-colors">Reservierung</a>
+            </nav>
+
+            <div class="flex space-x-8">
+                <a href="https://instagram.com/jetaime_berlin" class="w-10 h-10 flex items-center justify-center bg-stone-50 rounded-full text-stone-400 hover:bg-accent hover:text-white transition-all">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-stone-50 rounded-full text-stone-400 hover:bg-accent hover:text-white transition-all">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center bg-stone-50 rounded-full text-stone-400 hover:bg-accent hover:text-white transition-all">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+
+            <p class="text-[10px] text-stone-400 uppercase tracking-[0.3em] font-medium">© 2024 Jeta ime Restaurant Berlin. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation Scroll Logic
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('h-20');
+                nav.classList.remove('h-24');
+            } else {
+                nav.classList.add('h-24');
+                nav.classList.remove('h-20');
+            }
+        });
+
+        // Mobile Menu Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileNav = document.getElementById('mobile-nav');
+        const navLinks = document.querySelectorAll('#mobile-nav a');
+
+        menuToggle.onclick = () => {
+            mobileNav.classList.remove('hidden');
+            setTimeout(() => mobileNav.classList.add('opacity-100'), 10);
+        };
+
+        menuClose.onclick = () => {
+            mobileNav.classList.add('hidden');
+        };
+        
+        navLinks.forEach(link => {
+            link.onclick = () => mobileNav.classList.add('hidden');
+        });
+
+        // Reveal Animation on Scroll
+        function reveal() {
+            const reveals = document.querySelectorAll(".reveal");
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("load", reveal);
+    </script>
+</body>
+</html>
